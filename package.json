@@ -1,0 +1,15 @@
+{
+    "name": "azure-typescript-blueprints",
+    "version": "1.0.0",
+    "description": "How to use typescript and node with Azure",
+    "main": "",
+    "scripts": {
+    },
+    "keywords": [],
+    "author": "Björn Sjögren",
+    "license": "MIT",
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+}
