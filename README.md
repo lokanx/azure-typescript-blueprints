@@ -1,4 +1,5 @@
-# azure-typescript-blueprints
+# Azure Typescript Blueprints
+
 How to develop for Azure in Typescript 
 
 [Blob Storage](blobstorage)

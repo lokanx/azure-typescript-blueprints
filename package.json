@@ -3,13 +3,31 @@
     "version": "1.0.0",
     "description": "How to use typescript and node with Azure",
     "main": "",
-    "scripts": {
-    },
+    "scripts": {},
     "keywords": [],
     "author": "Björn Sjögren",
     "license": "MIT",
+    "homepage": "https://github.com/lokanx/azure-typescript-blueprints",
+    "bugs": {
+        "url": "https://github.com/lokanx/azure-typescript-blueprints/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lokanx/azure-typescript-blueprints.git"
+    },
     "dependencies": {
+        "applicationinsights": "^1.0.1",
+        "azure-sb": "^0.10.6",
+        "azure-storage": "^2.8.1",
+        "mongoose": "^5.0.2",
+        "typegoose": "^4.0.1"
     },
     "devDependencies": {
+        "@types/azure-sb": "0.0.31",
+        "@types/mongodb": "^3.0.5",
+        "@types/mongoose": "^5.0.0",
+        "@types/node": "^9.3.0",
+        "ts-node": "^4.1.0",
+        "typescript": "^2.6.2"
     }
 }

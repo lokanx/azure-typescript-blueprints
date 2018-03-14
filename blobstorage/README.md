@@ -1,3 +1,3 @@
-# azure-typescript-blueprints - blob storage
+# Azure Typescript Blueprints - Blob Storage
 
 TODO: Add more info...
