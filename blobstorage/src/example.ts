@@ -5,7 +5,7 @@ import * as fs from 'fs';
 
 export type AsynchronousCallback = (error?:Error) => void;
 
-class AzureDocumentFileLogic {
+class AzureDocuments {
 
   private readonly containerName: string = "MyContainer";
   private readonly storageAccountOrConnectionString: string = "<storageAccountOrConnectionString>";
