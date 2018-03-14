@@ -3,10 +3,10 @@
 ### Connect to blob storage
 
 ```Typescript
-init(callback: AsynchronousCallback): void {
-    let service = new BlobService("<storageAccountOrConnectionString>");
+connectAndCreateContainer(callback: AsynchronousCallback): void {
+    let service = new BlobService("<StorageAccountOrConnectionString>");
     service.createContainerIfNotExists(
-                    "<containerName>", 
+                    "<ContainerName>", 
                     { 'publicAccessLevel': 'blob' },  
                     (error: Error, result: BlobService.ContainerResult, response: ServiceResponse) => {
       if (error) {
