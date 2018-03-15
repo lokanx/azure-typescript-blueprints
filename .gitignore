@@ -27,3 +27,4 @@ package-lock.json
 ignored-resources
 .DS_Store
 dist/
+out-tsc
