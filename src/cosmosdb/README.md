@@ -1,0 +1,3 @@
+# Azure Typescript Blueprints - Cosmos DB
+
+TODO...
