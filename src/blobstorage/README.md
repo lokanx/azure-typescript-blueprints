@@ -18,4 +18,4 @@ connectAndCreateContainer(callback: Function): void {
   }
 ```
 
-For a more complete example, see
+For a more complete example, see [AzureBlobStorageHandler.ts](AzureBlobStorageHandler.ts)
