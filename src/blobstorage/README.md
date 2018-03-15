@@ -17,3 +17,5 @@ connectAndCreateContainer(callback: Function): void {
     });
   }
 ```
+
+For a more complete example, see

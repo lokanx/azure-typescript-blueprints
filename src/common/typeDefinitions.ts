@@ -1,0 +1,1 @@
+export type AsynchronousCallback = (error?:Error) => void;

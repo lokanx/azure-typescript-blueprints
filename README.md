@@ -2,4 +2,4 @@
 
 How to develop for Azure in Typescript 
 
-[Blob Storage](blobstorage)
+[Blob Storage](src/blobstorage)

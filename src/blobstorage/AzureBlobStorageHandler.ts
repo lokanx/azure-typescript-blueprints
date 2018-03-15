@@ -1,11 +1,11 @@
 import {BlobService, ServiceResponse} from "azure-storage";
-import * as path from "path";
 import {Writable} from "stream";
 import * as fs from 'fs';
+import {AsynchronousCallback} from "../common/typeDefinitions";
 
-export type AsynchronousCallback = (error?:Error) => void;
 
-class AzureDocuments {
+
+class AzureBlobStorageHandler {
 
   private readonly containerName: string = "MyContainer";
   private readonly storageAccountOrConnectionString: string = "<storageAccountOrConnectionString>";
