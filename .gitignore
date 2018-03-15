@@ -1,6 +1,29 @@
+# Eclipse
+.classpath
+.project
+.settings/
+.externalToolBuilders/
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+overlays/
+
+# Maven
+log/
+target/
+frontend-plugin-bin/
+node_modules/
+.mvntrash/
+
+# node/npm/web
 bower_components
 node_modules
 **/*.js.map
 package-lock.json
+
+# Misc
 ignored-resources
 .DS_Store
+dist/
