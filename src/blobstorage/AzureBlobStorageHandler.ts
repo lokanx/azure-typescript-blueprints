@@ -1,6 +1,6 @@
 import {BlobService, ServiceResponse} from "azure-storage";
+import * as fs from "fs";
 import {Writable} from "stream";
-import * as fs from 'fs';
 import {AsynchronousCallback} from "../common/typeDefinitions";
 
 
@@ -12,29 +12,21 @@ class AzureBlobStorageHandler {
 
   private service: BlobService = null;
 
-  constructor(callback:AsynchronousCallback) {
+  constructor(callback: AsynchronousCallback) {
     this.init(callback);
   }
 
-  private init(callback: AsynchronousCallback): void {
-    this.service = new BlobService(this.storageAccountOrConnectionString);
-    this.service.createContainerIfNotExists(this.containerName, { 'publicAccessLevel': 'blob' },  (error: Error, result: BlobService.ContainerResult, response: ServiceResponse) => {
-      if (error) {
-        this.service = null;
-        callback(error);
-      } else {
-        callback();
-      }
-    });
-  }
-
-  retrieveFile(blobName: string, writable: Writable, callback: AsynchronousCallback) : void {
+  public retrieveFile(blobName: string, writable: Writable, callback: AsynchronousCallback): void {
     if (!this.service) {
       throw new Error("Blob storage offline");
     }
 
 
-    this.service.getBlobToStream(this.containerName, blobName, writable, (error: Error, result: BlobService.BlobResult, response: ServiceResponse) => {
+    this.service.getBlobToStream(
+        this.containerName,
+        blobName,
+        writable,
+        (error: Error, result: BlobService.BlobResult, response: ServiceResponse) => {
       if (error) {
         callback(error);
       } else {
@@ -43,7 +35,7 @@ class AzureBlobStorageHandler {
     });
   }
 
-  storeFile(blobName: string, filePath: string, callback: AsynchronousCallback) : void {
+  public storeFile(blobName: string, filePath: string, callback: AsynchronousCallback): void {
     if (!this.service) {
       throw new Error("Blob storage offline");
     }
@@ -52,7 +44,10 @@ class AzureBlobStorageHandler {
       callback(new Error("File do not exist: " + filePath));
     }
 
-    this.service.createBlockBlobFromLocalFile(this.containerName, blobName, filePath, (error: Error, result: BlobService.BlobResult, response: ServiceResponse) => {
+    this.service.createBlockBlobFromLocalFile(
+        this.containerName,
+        blobName, filePath,
+        (error: Error, result: BlobService.BlobResult, response: ServiceResponse) => {
         if (error) {
           callback(error);
         } else {
@@ -61,7 +56,7 @@ class AzureBlobStorageHandler {
     });
   }
 
-  deleteFile(callback: AsynchronousCallback): void {
+  public deleteFile(callback: AsynchronousCallback): void {
     if (!this.service) {
       throw new Error("Blob storage offline");
     }
@@ -71,12 +66,16 @@ class AzureBlobStorageHandler {
     callback();
   }
 
-  dropContainer(callback: AsynchronousCallback): void {
+  public dropContainer(callback: AsynchronousCallback): void {
     if (!this.service) {
       throw new Error("Blob storage offline");
     }
 
-    this.service.deleteContainerIfExists(this.containerName,  (error: Error, result: boolean, response: ServiceResponse) => {
+    this.service.deleteContainerIfExists(
+        this.containerName,
+        (error: Error, result: boolean,
+         response: ServiceResponse) => {
+
       if (error) {
         callback(error);
       } else {
@@ -84,4 +83,19 @@ class AzureBlobStorageHandler {
       }
     });
   }
+
+    private init(callback: AsynchronousCallback): void {
+        this.service = new BlobService(this.storageAccountOrConnectionString);
+        this.service.createContainerIfNotExists(
+            this.containerName,
+            { publicAccessLevel: "blob" },
+            (error: Error, result: BlobService.ContainerResult, response: ServiceResponse) => {
+                if (error) {
+                    this.service = null;
+                    callback(error);
+                } else {
+                    callback();
+                }
+            });
+    }
 }
